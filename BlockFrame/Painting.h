@@ -6,7 +6,7 @@
 
 namespace BlockFrame {
 	// 设置前景色和背景色
-	inline void SetColor(Color foreground = Color::Black, Color background = Color::Black) {
+	inline void SetColor(Color foreground = Color::White, Color background = Color::Black) {
 		HANDLE hConsole = GetStdHandle(STD_OUTPUT_HANDLE);
 		WORD color = static_cast<WORD>(foreground) | (static_cast<WORD>(background) << 4);
 		SetConsoleTextAttribute(hConsole, color);
@@ -32,6 +32,7 @@ namespace BlockFrame {
 			buffer.resize(MAX_X * MAX_Y);
 		}
 
+		bool isOutOfRange(Vector2D v) const;
 		void setSize(size_t MAX_X, size_t MAX_Y);
 
 		void paint() const;

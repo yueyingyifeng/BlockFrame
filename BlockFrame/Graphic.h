@@ -11,7 +11,7 @@ namespace BlockFrame {
             p = new Painting(MAX_X, MAX_Y, origin);
         }
         virtual ~Graphic() {
-            //delete p;
+            delete p;
         }
         virtual void update(void (*callback)(Painting* p)) = 0;
 	};

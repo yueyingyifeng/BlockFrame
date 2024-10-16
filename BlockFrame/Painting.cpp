@@ -1,6 +1,10 @@
 #include "Painting.h"
 
 namespace BlockFrame {
+    bool Painting::isOutOfRange(Vector2D v) const
+    {
+        return v.x < 0 || v.y < 0 || v.x >= MAX_X || v.y >= MAX_Y;
+    }
     void Painting::setSize(size_t MAX_X, size_t MAX_Y)
     {
         this->MAX_X = MAX_X;
@@ -22,31 +26,37 @@ namespace BlockFrame {
 
     void Painting::pixel(Vector2D v, char c)
 	{
+		if (isOutOfRange(v))
+            throw "out of painting range!";
+
         buffer[posOfBlocks(v)] = c;
 	}
+    // 分段直线算法( 没错，我给明明的 XD )
+	void Painting::line(Vector2D v1, Vector2D v2, char c)
+	{
+		if (isOutOfRange(v2) || isOutOfRange(v1))
+			throw "out of painting range!";
+		size_t dy = static_cast<size_t>(abs((long)v2.y - (long)v1.y)) + 1;
+		size_t dx = static_cast<size_t>(abs((long)v2.x - (long)v1.x)) + 1;
 
-    void Painting::line(Vector2D v1, Vector2D v2, char c)
-    {
-        size_t dy = static_cast<size_t>(abs((long)v2.y - (long)v1.y)); // 计算y方向的差
-        size_t dx = static_cast<size_t>(abs((long)v2.x - (long)v1.x)); // 计算x方向的差
+		size_t steps = dx > dy ? dx / dy : dy / dx;
 
-        // 计算分段数
-        size_t steps = dy > 0 ? dy : 1; // 如果dy大于0，则分成dy段，否则至少1段
-        float xIncrement = static_cast<float>(dx) / steps; // 每步x增加的量
-        float yIncrement = static_cast<float>(dy) / steps; // 每步y增加的量
+		int ix = v2.x == v1.x ? 0 : v2.x > v1.x ? 1 : -1;
+		int iy = v2.y == v1.y ? 0 : v2.y > v1.y ? 1 : -1;
 
-        // 初始化当前点
-        float x = v1.x;
-        float y = v1.y;
-
-        // 循环绘制每个段
-        for (size_t i = 0; i <= steps; i++) {
-            pixel(Vector2D(static_cast<int>(round(x)), static_cast<int>(round(y))), c); // 绘制像素
-
-            x += xIncrement; // 更新x
-            y += yIncrement; // 更新y
-        }
-    }
+        if(dx > dy)
+		    for (int i{}; i < dx; i++, v1.x += ix) {
+			    if (i != 0 && i % steps == 0 && v1.y != v2.y)
+				    v1.y += iy;
+			    pixel(Vector2D(v1.x, v1.y), c);
+		    }
+        else
+			for (int i{}; i < dy; i++, v1.y += iy) {
+				if (i != 0 && i % steps == 0 && v1.x != v2.x)
+					v1.x += ix;
+				pixel(Vector2D(v1.x, v1.y), c);
+			}
+	}
     size_t Painting::posOfBlocks(Vector2D v) const
     {
         return v.x + v.y * MAX_X;
