@@ -14,45 +14,33 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Block.cpp">
+    <ClCompile Include="FileName.cpp">
       <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Graphic.h">
+      <Filter>头文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Vector2D.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="Canvas.h">
+      <Filter>头文件</Filter>
     </ClCompile>
     <ClCompile Include="Canvas.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Coordinate.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Debug.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Pencil.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
-    <ClCompile Include="test.cpp">
+    <ClCompile Include="Painting.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Vector2D.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
     <ClInclude Include="Block.h">
       <Filter>头文件</Filter>
     </ClInclude>
-    <ClInclude Include="BlockFrame.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Canvas.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Color.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Coordinate.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Debug.h">
-      <Filter>头文件</Filter>
-    </ClInclude>
-    <ClInclude Include="Pencil.h">
+    <ClInclude Include="Painting.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
