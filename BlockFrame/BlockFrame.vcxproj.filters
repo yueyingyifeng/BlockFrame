@@ -17,27 +17,25 @@
     <ClCompile Include="FileName.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Graphic.h">
-      <Filter>头文件</Filter>
-    </ClCompile>
     <ClCompile Include="Vector2D.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Canvas.h">
-      <Filter>头文件</Filter>
-    </ClCompile>
-    <ClCompile Include="Canvas.cpp">
+    <ClCompile Include="SokobanGame.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="Painting.cpp">
-      <Filter>源文件</Filter>
-    </ClCompile>
+    <ClCompile Include="BlockBuffer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Vector2D.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Block.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="BlockBuffer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Canvas.h">
       <Filter>头文件</Filter>
     </ClInclude>
     <ClInclude Include="Painting.h">

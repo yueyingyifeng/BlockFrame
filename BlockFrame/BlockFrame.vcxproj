@@ -19,15 +19,15 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Canvas.cpp" />
-    <ClCompile Include="Canvas.h" />
+    <ClCompile Include="BlockBuffer.cpp" />
     <ClCompile Include="FileName.cpp" />
-    <ClCompile Include="Graphic.h" />
-    <ClCompile Include="Painting.cpp" />
+    <ClCompile Include="SokobanGame.cpp" />
     <ClCompile Include="Vector2D.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Block.h" />
+    <ClInclude Include="BlockBuffer.h" />
+    <ClInclude Include="Canvas.h" />
     <ClInclude Include="Painting.h" />
     <ClInclude Include="Vector2D.h" />
   </ItemGroup>

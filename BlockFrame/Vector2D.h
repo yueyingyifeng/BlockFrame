@@ -1,5 +1,7 @@
 #pragma once
 #include <cmath>
+#include <algorithm>
+#include <functional>
 namespace BlockFrame {
 	class Vector2D {
 	public:

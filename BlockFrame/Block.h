@@ -1,6 +1,8 @@
 #pragma once
-
+#include <stdexcept>
+#include <vector>
 namespace BlockFrame {
+
     enum class Color {
         Black = 0,
         Blue = 1,
@@ -29,7 +31,7 @@ namespace BlockFrame {
         Block(char c = ' ', Color foreGround = Color::White, Color backGounrd = Color::Black)
         : foreGround(foreGround), backGounrd(backGounrd){
             if (c < 0 || c > 0xff)
-                throw "Block not a ASCII";
+                throw std::invalid_argument("Block not a ASCII");
             this->c = c;
         }
 
@@ -39,5 +41,11 @@ namespace BlockFrame {
             }
             return *this;
         }
+
+        char operator()() const {
+            return c;
+        }
     };
+
+	using Blocks = std::vector<Block>;
 }
